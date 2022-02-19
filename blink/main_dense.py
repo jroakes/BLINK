@@ -483,7 +483,11 @@ def run(
                     sample_prediction = []
                     for e_id in entity_list:
                         e_title = id2title[e_id]
-                        sample_prediction.append(e_title)
+                        e_url = id2url[e_id]
+                        if args.show_url:
+                            sample_prediction.append((e_title, e_url))
+                        else:
+                            sample_prediction.append(e_title)
                     predictions.append(sample_prediction)
 
                 # use only biencoder
